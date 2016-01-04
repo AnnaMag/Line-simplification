@@ -20,12 +20,16 @@ in Chicago extracted using its open API. The calculations assume a planar surfac
 
 ###Future:
 ##### handle intersections
+There are two instances that may cause problems in complex cases:
+1. In the DP implementation itself: when line drawn between two key points crosses other lines (checking additional condition)
+2. When the input polyline has knots it should be split into non-intersecting
+polygons
 
 #####speed-up:
 >J. Hershberger and J. Snoeyink. Speeding up the Douglas-Peucker line simplification >algorithm. In Proc. 5th Intl. Symp. Spatial Data Handling. IGU Commission on GIS, >pages 134--143, 1992. (home page).
-##### Visvalingam’s algorithm,
 
-Uses 'effective area' for Line simplification
+##### Visvalingam’s algorithm
+Uses the 'effective area' for line simplification. 'area_calculations' are already implemented
 >Line generalisation by repeated elimination of the smallest area Visvalingam, >Maheswari; Whyatt, J. D. (James Duncan) Cartography -- Data processing; Computer >science, July 1992
 
 (visual intuition: http://bost.ocks.org/mike/simplify/)
