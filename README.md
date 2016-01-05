@@ -14,7 +14,8 @@ In addition, there is an option of running Radial Distance prior to the DP algor
 For demonstration, I used the data on Metro GIS positions in LA extracted using its open API (http://developer.metro.net/). The calculations assume a planar surface (relatively small spatial coverage of points) and no transformation of coordinates for the geo data was done (yet).
 
 ## Usage and notes
-Coded in Python3 (otherwise bit to be modified: shapely and functools)
+Coded in Python3. For Python2 adjust the parts calling shapely and functools.
+
 Run as
 ```
 python run_line_simplification.py
