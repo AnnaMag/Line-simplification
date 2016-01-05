@@ -8,6 +8,7 @@ from make_plots import lines_multiplot
 from calculate_distance import  CalculateDistance
 from radial_distance import EstimateRadialDistance
 from getDouglasPeucker import GetDouglasPeucker_recursive
+from create_geojson import create_map
 
 import requests
 import json
@@ -41,7 +42,14 @@ def simplify_lineDP(points, tolerance, RadialPass):
     points = GetDouglasPeucker_recursive(points, tolerance)
     return points
 
+# process the input data
 loc_data = process_bus_data()
+# simplify the polyline using the DP algorithm
 loc_data_simplified = simplify_lineDP(loc_data, tolerance, False)
+# plot the results and save it in the bus_route.png
+lines_multiplot(loc_data, loc_data_simplified, 'bus_route')
 
-lines_multiplot(loc_data, loc_data_simplified)
+# create geojson files from the input and output data (to be ploted in Gist or
+# for use with Leaflet)
+create_map(loc_data,0, 'data_input')
+create_map(loc_data_simplified, 1, 'data_output')
