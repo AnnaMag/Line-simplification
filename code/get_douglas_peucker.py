@@ -9,7 +9,7 @@ import numpy as np
 from definitions import Line
 from calculate_distance import CalculateDistance
 
-def GetDouglasPeucker_recursive(points, threshold):
+def get_douglas_peucker_recursive(points, threshold):
     """
     Recursive version of the DP algorithm
     """
@@ -28,13 +28,13 @@ def GetDouglasPeucker_recursive(points, threshold):
 
     if xmax >= threshold:
         # [:-1] index is set no to add the same element, which appears in the set from the same split
-        results = GetDouglasPeucker_recursive(points[:xindex+1], threshold)[:-1] + GetDouglasPeucker_recursive(points[xindex:], threshold) # adding sets (left and right split)
+        results = get_douglas_peucker_recursive(points[:xindex+1], threshold)[:-1] + get_douglas_peucker_recursive(points[xindex:], threshold) # adding sets (left and right split)
     else:
         results = [points[0], points[-1]] # collect the segments with no points above the threshold (no more splits)
 
     return results
 
-    def GetDouglasPeucker(points, tolerance):
+    def get_douglas_peucker(points, tolerance):
         """calculate DP simplification: long initial version"""
 
         length = len(points)

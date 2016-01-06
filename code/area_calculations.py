@@ -4,7 +4,7 @@ Created on Mon Jan 4 2016
 Anna M. Kedzierska
 """
 
-def GetArea(p0, p1, p2):
+def get_triangle_area(p0, p1, p2):
     # Note to self: the area of a planar parallelogram or triangle can be expressed
     #by the magnitude of the cross-product of two edge vectors: 0.5|v x w|, v = w,
     vx = p1.x - p0.x

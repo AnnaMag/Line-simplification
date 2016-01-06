@@ -5,7 +5,7 @@ Anna M. Kedzierska
 
 usage of the main function CalculateDistance.get_dist(Line([0,2],[3,2]), (2,4))
 """
-from definitions import Line, Point_loc
+from definitions import Line, PointLoc
 import math_definitions
 import math
 from functools import singledispatch
@@ -17,7 +17,7 @@ class CalculateDistance(object):
     def get_dist(shape, point):
         pass
 
-    @get_dist.register(Point_loc)
+    @get_dist.register(PointLoc)
     def _(arg, point):
         """distance between two points"""
         dx = arg.x - point.x
@@ -28,7 +28,7 @@ class CalculateDistance(object):
     @get_dist.register(Line)
     def _(arg, point):
         """distance between a point and a segment"""
-        point = Point_loc(point)
+        point = PointLoc(point)
         dvx = arg.end[0] - arg.start[0]
         dvy = arg.end[1] - arg.start[1]
         #distance to the first point

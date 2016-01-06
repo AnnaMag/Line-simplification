@@ -4,7 +4,7 @@ Created on Mon Jan 4 2016
 Anna M. Kedzierska
 
 """
-class Point_loc:
+class PointLoc:
     def __init__(self, p):
         self.x, self.y  = p[0], p[1]
 class Line:
