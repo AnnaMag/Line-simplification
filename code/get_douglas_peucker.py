@@ -34,7 +34,8 @@ def get_douglas_peucker_recursive(points, threshold):
 
     return results
 
-    def get_douglas_peucker(points, tolerance):
+# non-recursive implementation
+def get_douglas_peucker(points, tolerance):
         """calculate DP simplification: long initial version"""
 
         length = len(points)
