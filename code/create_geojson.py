@@ -9,23 +9,21 @@ def create_map(points, type_obj, out_file_name):
     """
     Input: list of points as tuples, type_obj= 0: points, else: line
     Returns a GeoJSON file.
-    Note: GitHub will automatically renders the GeoJSON
+    Note: GitHub can automatically render the GeoJSON
     file as a map.
     """
 
     # Define type of GeoJSON we're creating
     geo_map = {"type": "FeatureCollection"}
 
-    # Define empty list to collect each point to graph
+    # Define empty list to collect each point
     item_list = []
     index = 0
     # Iterate over our data to create GeoJSOn document.
-    # We're using enumerate() so we get the line, as well
-    # the index, which is the line number.
+
     for point in points:
         index = index + 1
-        # Skip any zero coordinates as this will throw off
-        # our map.
+        # beware of 0's
         if point[0] == "0" or point[1] == "0":
             continue
 
